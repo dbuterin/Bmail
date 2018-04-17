@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}All Messages{% endblock title %}
+{% block page_content %}
+<header class="masthead" style="background-image: url('img/home-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+                    <div class="well">
+                        <h2>Received mail here!</h2>
+                        <a href="/" role="button" class="btn btn-warning">Back</a>
+                    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</header>
+                    <br>
+                    <br>
+                    {% for message in m_receiver %}
+                      <ul>
+                          <a href="/single_message/{{ message.key.id() }}">
+                              <li>
+
+                                    <div>Message is: {{ message.message }}.</div>
+                                    <div>Sender of message is: {{ message.sender }}.</div>
+                                    <div>Receiver of message is: {{ message.receiver }}.</div>
+                                    <div>Date of creation is: {{ message.date }}.</div>
+                              </li>
+                          </a>
+                      </ul>
+                    {% endfor %}
+
+{% endblock page_content %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message</title>
+</head>
+<body>
+
+
+
+<div class="well">
+    <h2>Data of message:</h2>
+    <a href="/" role="button" class="btn btn-warning">Back</a>
+        <p>Id of message: {{ message.key.id() }}</p>
+        <p>Message content: {{ message.message }}</p>
+        <p>Sender of message: {{ message.sender }}</p>
+        <p>Receiver of message: {{ message.receiver }}</p>
+        <a href="/single_message/{{ message.key.id() }}/edit">Edit</a>
+        <a href="/single_message/{{ message.key.id() }}/delete">Delete</a>
+</div>
+
+</body>
+</html>

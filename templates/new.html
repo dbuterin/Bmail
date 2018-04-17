@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}New Messages{% endblock title %}
+{% block page_content %}
+<header class="masthead" style="background-image: url('img/home-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h6>{% if not user %}
+                    <a href="{{ login_url }}">Please Login</a>
+                  {% else %}
+                    <div class="well">
+                        <h2>Send a mail</h2>
+                        <a href="{{ logout_url }}">Logout</a>
+                        <br>
+                        <br>
+                        <form action='/result' method="post">
+                            <label for="in_message">Message:</label>
+                            <br>
+                            <br>
+                            <input name="message" id="in_message">
+                            <br>
+                            <br>
+                            <label for="in_sender">Sender:</label>
+                            <br>
+                            <br>
+                            <input name="sender" type="email" id="in_sender">
+                            <br>
+                            <br>
+                            <label for="in_receiver">Receiver:</label>
+                            <br>
+                            <br>
+                            <input name="receiver" type="email" id="in_receiver">
+                            <br>
+                            <br>
+                            <button class="btn btn-success" type="submit">Send</button>
+                        </form>
+                        <a href="/" role="button" class="btn btn-warning">Back</a>
+                    </div>
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+{% endif %}
+{% endblock page_content %}

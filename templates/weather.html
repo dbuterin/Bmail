@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Bmail App{% endblock title %}
+{% block page_content %}
+<header class="masthead" style="background-image: url('img/home-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+                    <div class="well">
+                        <div class="well">
+        <h2>Current weather in {{ data.name }}.</h2>
+
+        <br>
+        <br>
+        <ul>
+            <li>Temperatura: {{ data.main.temp  }} </li>
+            <li>Minimalna temperatura: {{ data.main.temp_min  }} </li>
+            <li>Maksimalna temperatura: {{ data.main.temp_max  }} </li>
+            <li>Opis trenutnega vremena: {{ data.weather[0].description }}</li>
+            <li>Pritisk: {{ data.main.pressure }} hPa.</li>
+            <li>Vlažnost: {{ data.main.humidity}}%.</li>
+
+
+
+        </ul>
+    </div>
+                        <a href="/" role="button" class="btn btn-warning">Back</a>
+                    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</header>
+
+{% endblock page_content %}

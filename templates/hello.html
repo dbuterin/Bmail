@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Bmail App{% endblock title %}
+{% block page_content %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>{% if not user %}
+                    <a href="{{ login_url }}">Please Login</a>
+                  {% else %}
+                    <h1>Welcome {{ user.nickname() }}</h1>
+                    <a href="{{ logout_url }}">Logout</a>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-preview">
+            <a href="all">
+              <h2 class="post-title">
+                All Messages
+              </h2>
+            </a>
+
+          </div>
+          <hr>
+          <div class="post-preview">
+            <a href="inbox">
+              <h2 class="post-title">
+                Inbox
+              </h2>
+            </a>
+          </div>
+          <hr>
+          <div class="post-preview">
+            <a href="outbox">
+              <h2 class="post-title">
+               Outbox
+              </h2>
+            </a>
+          </div>
+          <hr>
+          <div class="post-preview">
+            <a href="new">
+              <h2 class="post-title">
+                Sent new mail
+              </h2>
+            </a>
+          </div>
+          <hr>
+           <div class="post-preview">
+            <a href="weather">
+              <h2 class="post-title">
+                Current weather
+              </h2>
+            </a>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+{% endif %}
+{% endblock page_content %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message</title>
+</head>
+<body>
+    <div class="well">
+        <h2>You can edit this message</h2>
+        <a href="/all" role="button" class="btn btn-warning">Back</a>
+        <br>
+        <br>
+        <form action="/single_message/{{ message.key.id() }}/edit" method="post">
+            <label for="in_message">Message:</label>
+            <br>
+            <br>
+            <input name="edit_message" value={{ message.message }} id="in_message">
+            <br>
+            <br>
+            <label for="in_sender">Sender:</label>
+            <br>
+            <br>
+            <input name="edit_sender" type="email" value={{ message.sender }} id="in_sender">
+            <br>
+            <br>
+            <label for="in_receiver">Receiver:</label>
+            <br>
+            <br>
+            <input name="edit_receiver" type="email" value={{ message.receiver }} id="in_receiver">
+            <br>
+            <br>
+            <button class="btn btn-success" type="submit">Ok</button>
+        </form>
+    </div>
+</body>
+</html>
