@@ -115,14 +115,18 @@ class DeleteMessageHandler(BaseHandler):
     def get(self, message_id):
         user = users.get_current_user()
         if user:
-            prijavljen = True
-            message = Message.get_by_id(int(message_id))
-            params = {"message": message}
-            params["user"] = user
-            logout_url = users.create_logout_url('/')
-            params["prijavljen"] = prijavljen
-            params["logout_url"] = logout_url
-            return self.render_template("delete_message.html", params=params)
+            if users.is_current_user_admin():
+                prijavljen = True
+                message = Message.get_by_id(int(message_id))
+                params = {"message": message}
+                params["user"] = user
+                logout_url = users.create_logout_url('/')
+                params["prijavljen"] = prijavljen
+                params["logout_url"] = logout_url
+                return self.render_template("delete_message.html", params=params)
+            else:
+                return self.response.write('You are not an administrator.')
+
         else:
             return self.redirect_to("main")
 
